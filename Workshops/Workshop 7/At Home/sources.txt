@@ -1,0 +1,9 @@
+For the in lab part, I received a line of code from the TA for the function
+istream& Ore::input(istream& is)
+
+	Ore temp(newWeight, newPurity, newClassification);  //this line was added on the advice of the TA
+	*this = temp;
+
+Everything was done by myself
+
+Daryan Chan, 113973192
