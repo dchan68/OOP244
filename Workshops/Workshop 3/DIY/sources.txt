@@ -1,0 +1,4 @@
+For the at Workshop 3,home portion of the lab, I used Mark's code for the ostream& display
+His info is xiaoxinzhou ID 111310199. File name is Mark.cpp
+
+Daryan Chan, dchan68, 113973192
