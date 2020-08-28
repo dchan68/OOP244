@@ -1,0 +1,19 @@
+For the Menu.cpp module, I copied the function 
+
+	const char* Menu::operator[](int number)const {
+		while (number > num_pointers) {
+			number -= num_pointers;
+		}
+		return item[number]->m_description;
+	}
+
+and this code for ostream& Menu::menuitem(ostream os) const; 
+from Vlad, also in section NCC
+
+		os.setf(ios::right);
+		for (int i = 0; i < num_pointers; i++) {
+			os.width(1);
+			os << " " << i + 1 << "- "; item[i]->display();
+		}
+
+Daryan Chan, 113973192
