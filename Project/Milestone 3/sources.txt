@@ -1,0 +1,21 @@
+For milestone 3 in PubRecord.cpp, I copied a function from Terry also from section
+NCC. The function I copied is, 
+
+	void PubRecord::readNum(int& val, int min, int max, const char* errorMess) {
+		bool trueFalse;
+		char newLine;
+		do {
+			cin >> val;
+			newLine = cin.get();
+			if (!cin.fail() || newLine == '\n') {
+				trueFalse = val >= min && val <= max;
+			}
+			else {
+				trueFalse = false;
+				cin.clear();
+				cin.ignore(2000, '\n');
+			}
+		} while (!trueFalse && cout << errorMess);
+	}
+
+Daryan Chan, 113973192
