@@ -1,0 +1,99 @@
+I was stuck on MS4 so I compared notes with Nisham Bohara and found that he has been utilizing Utils modules
+from previous workshops. As such, I have followed his lead and copied the utils functions from the workshops. 
+
+	void flushKeyboard() {
+		char ch;
+		do {
+			ch = cin.get();
+		} while (ch != '\n');
+	}
+
+	int readInt(int min, int max, const char* ErrorMess) {
+		bool ok;
+		int val;
+		char newline;
+		do {
+			cin >> val;
+			newline = cin.get();
+			if (cin.fail() || newline != '\n') {
+				ok = false;
+				cin.clear();
+				cin.ignore(1000, '\n');
+			}
+			else {
+				ok = val <= max && val >= min;
+			}
+		} while (!ok && cout << ErrorMess);
+		return val;
+	}
+
+	void readLNum(unsigned long long& val, unsigned long long min, unsigned long long max, const char* ErrorMess){
+		bool ok;
+		char newline;
+		do {
+			cin >> val;
+			newline = cin.get();
+			if (cin.fail() || newline != '\n') {
+				ok = false;
+				cin.clear();
+				cin.ignore(1000, '\n');
+			}
+			else {
+				ok = val <= max && val >= min;
+			}
+		} while (!ok && cout << ErrorMess);
+	}
+
+	ostream& printChar(int len, const char* character, ostream& os){
+		for (int i = 0; i < len; i++, os << character);
+		return os;
+	}
+
+	istream& readInt(int& val, int min, int max, const char* errorMessage, istream& is){
+		bool ok;
+		char newline;
+		do {
+			cin >> val;
+			newline = cin.get();
+			if (cin.fail() || newline != '\n') {
+				ok = false;
+				cin.clear();
+				cin.ignore(1000, '\n');
+			}
+			else {
+				ok = val <= max && val >= min;
+			}
+		} while (!ok && cout << errorMessage);
+		return is;
+	}
+
+	istream& readS(char* str, int len, const char* errorMessage, istream& is) {
+		bool ok;
+		do {
+			ok = true;
+			is.getline(str, len + 1, '\n');
+			if (is.fail()) {
+				is.clear();
+				is.ignore(1000, '\n');
+				ok = false;
+			}
+		} while (!ok && cout << errorMessage);
+		return is;
+	}
+
+Therefore, I had to adjust some of my codes for the magazine module to utilize the utils module. Functions that underwent
+modification thanks to inspiration from Nisham is,
+
+	istream& Magazine::read(istream& is){
+		if (mediaType() == SDDS_CONSOLE) {
+			char magName[41];  
+			cout << "Magazine Name: ";
+			readS(magName, 40, "Magazine name too long, Enter nagain: ", is);
+			PubRecord::name(magName);  
+			cout << "Volume: ";
+			readInt(volume, 1, 99, "Invalid Volume number, Enter again: ", is); 
+			cout << "Issue: ";
+			readInt(issueNum, 1, 99, "Invalid Issue number, Enter again: ", is);
+			cout << "Shelf Number: "; 
+			PubRecord::readShelfNo(); 
+
