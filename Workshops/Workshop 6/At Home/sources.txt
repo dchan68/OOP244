@@ -1,0 +1,10 @@
+Daryan Chan, ID 113973192
+
+I received help for the at home portion from Terry Qiu,
+also from the same section, section C
+
+Recieved help for ostream function. Copied this code 
+
+		if (*this && isCopy()) {
+			cout << "This is a replica of emptiness" << endl;
+		}

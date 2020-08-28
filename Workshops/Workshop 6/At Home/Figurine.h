@@ -1,0 +1,41 @@
+// Figurine.h
+//Name: Daryan Chan
+//Section NCC
+//ID: 113973192
+//email: dchan68@myseneca.ca
+
+#ifndef SDDS_FIGURINE_H
+#define SDDS_FIGURINE_H
+#include <iostream>
+
+namespace sdds {
+	const int MAX_NAME_LEN = 20;
+	const double DEFAULT_PRICE = 25.25;
+
+	class Figurine {
+		char name[MAX_NAME_LEN + 1];
+		char* pose;
+		double price;
+		bool copy;
+
+	public:
+		Figurine();
+		Figurine(const char*, const char*, double);
+		Figurine(const Figurine&);
+		~Figurine();
+		void setName(const char*);
+		void setPose(const char*);
+		void setPrice(double);
+		std::ostream& display() const;
+		operator bool() const;
+		Figurine& operator=(const Figurine&);
+		bool isCopy() const;
+		const char* getName() const;
+		const char* getPose() const;
+		const double getPrice() const;
+	};
+
+	bool operator==(const Figurine&, const Figurine&);
+}
+
+#endif
