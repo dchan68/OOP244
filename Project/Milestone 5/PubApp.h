@@ -1,5 +1,5 @@
-// Student Name: Hyun Seong Lee
-// Student Number: 139079180
+// Student Name: Daryan Chan
+// Student Number: 113973192
 // Professor: Fardad Soleimanloo
 // Section: OOP244 (NAA)
 // Module: PubApp.h
